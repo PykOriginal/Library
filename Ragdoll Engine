@@ -1,65 +1,66 @@
-    local plr = game.Players.LocalPlayer
-    local Window = Library.CreateLib("Pyk Hub Ragdoll Engine", "RJTheme3")
-    local Tab = Window:NewTab("Test")
-local Section = Tab:NewSection("Test")
-        Section:NewButton("Print Player", "ButtonInfo", function()
-            print(plr)
-        end)
-        Section:NewButton("Print Device", "ButtonInfo", function()
-        if game:GetService("UserInputService").TouchEnabled then
-            print("Phone or Tablet")
-        else
-            print("Computer")
-        end
-        end)
-        Section:NewButton("Print GameID", "ButtonInfo", function()
-            local gam = game.PlaceId
-        print(gam)
-        end)
-        
-    local Tab = Window:NewTab("Main")
-            local Section = Tab:NewSection("Tp")
-            Section:NewButton("Tp to Stairs v2", "ButtonInfo", function()
-            plr.Character:MoveTo(Vector3.new(137.19458, 830.639404, -343.884338, 0.0906840563, -0.0572547205, 0.994232595, -0.0271710828, 0.997832179, 0.059940286, -0.995509028, -0.0324500054, 0.0889317989))
-            end)
-            Section:NewButton("Tp to Tower", "ButtonInfo", function()
-            plr.Character:MoveTo(Vector3.new(135.951355, 1034.83594, -192.429169, 0.00974094216, -0.0559147969, 0.998388171, -0.0260421056, 0.998082578, 0.0561517626, -0.999613345, -0.0265471172, 0.00826613232))
-        end)
-            Section:NewButton("Tp to Stairs ", "ButtonInfo", function()
-            plr.Character:MoveTo(Vector3.new(11.2190418, 200.635971, -498.813049, -0.99788481, -0.0204855297, -0.0616959855, -0.0237059388, 0.998369515, 0.0519266166, 0.0605316423, 0.0532793477, -0.996743381))
-        end)
-            Section:NewButton("Tp to Baloon", "ButtonInfo", function()
-            plr.Character:MoveTo(workspace.Air.Carrige.Position)
-        end)
-            Section:NewButton("Tp to Baloon station", "ButtonInfo", function()
-            plr.Character:MoveTo(Vector3.new(-118.722015, 24.837925, -128.614487, -0.999558032, -0.0215205271, -0.0205109715, -0.0226089712, 0.99826324, 0.0544004962, 0.0193046182, 0.0548401698, -0.99830848))
-        end)
-            Section:NewButton("Tp to Minefield", "ButtonInfo", function()
-            plr.Character:MoveTo(Vector3.new(-69.340889, 24.637907, -97.1481857, 0.999472201, 0.0310752932, -0.00948233716, -0.030565504, 0.998288572, 0.0498563945, 0.011015418, -0.049540244, 0.998711407))
-        end)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
+local plr = game.Players.LocalPlayer
+local Window = Library.CreateLib("Pyk Hub Ragdoll Engine", "RJTheme3")
+
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Tp")
+Section:NewButton("Tp to Stairs v2", "ButtonInfo", function()
+plr.Character:MoveTo(Vector3.new(137.19458, 830.639404, -343.884338, 0.0906840563, -0.0572547205, 0.994232595, -0.0271710828, 0.997832179, 0.059940286, -0.995509028, -0.0324500054, 0.0889317989))
+end)
+Section:NewButton("Tp to Tower", "ButtonInfo", function()
+plr.Character:MoveTo(Vector3.new(135.951355, 1034.83594, -192.429169, 0.00974094216, -0.0559147969, 0.998388171, -0.0260421056, 0.998082578, 0.0561517626, -0.999613345, -0.0265471172, 0.00826613232))
+end)
+Section:NewButton("Tp to Stairs ", "ButtonInfo", function()
+plr.Character:MoveTo(Vector3.new(11.2190418, 200.635971, -498.813049, -0.99788481, -0.0204855297, -0.0616959855, -0.0237059388, 0.998369515, 0.0519266166, 0.0605316423, 0.0532793477, -0.996743381))
+end)
+Section:NewButton("Tp to Baloon", "ButtonInfo", function()
+plr.Character:MoveTo(workspace.Air.Carrige.Position)
+end)
+Section:NewButton("Tp to Baloon station", "ButtonInfo", function()
+plr.Character:MoveTo(Vector3.new(-118.722015, 24.837925, -128.614487, -0.999558032, -0.0215205271, -0.0205109715, -0.0226089712, 0.99826324, 0.0544004962, 0.0193046182, 0.0548401698, -0.99830848))
+end)
+Section:NewButton("Tp to Minefield", "ButtonInfo", function()
+plr.Character:MoveTo(Vector3.new(-69.340889, 24.637907, -97.1481857, 0.999472201, 0.0310752932, -0.00948233716, -0.030565504, 0.998288572, 0.0498563945, 0.011015418, -0.049540244, 0.998711407))
+end)
 local Section = Tab:NewSection("Player")
-            Section:NewSlider("Walk Speed", "SliderInfo", 200, 16, function(s)
-            plr.Character.Humanoid.WalkSpeed = s
-        end)
-            Section:NewSlider("Jump Power", "SliderInfo", 200, 50, function(s)
-            plr.Character.Humanoid.JumpPower = s
-        end)
-            Section:NewButton("GodMode", "ButtonInfo", function()
-            while game:GetService("RunService").RenderStepped:wait() do
-            plr.Character.Humanoid.Health = 100
-        end
-        end)
-    local Tab = Window:NewTab("Other")
-    local Section = Tab:NewSection("Other")
-    Section:NewToggle("Anti Ragdoll (Do not include when ragdoll)", "ToggleInfo", function(state)
-    if state then
-        plr.Character.RagdollMe.Enabled = false
-        plr.Character.Pushed.Enabled = false
-        plr.Character.Swimming = false
-    else
-        plr.Character.RagdollMe.Enabled = true
-        plr.Character.Pushed.Enabled = true
-        plr.Character.Swimming = true
-    end
-    end)
-    end
+Section:NewSlider("Walk Speed", "SliderInfo", 200, 16, function(s)
+plr.Character.Humanoid.WalkSpeed = s
+end)
+Section:NewSlider("Jump Power", "SliderInfo", 200, 50, function(s)
+plr.Character.Humanoid.JumpPower = s
+end)
+Section:NewButton("GodMode", "ButtonInfo", function()
+while game:GetService("RunService").RenderStepped:wait() do
+plr.Character.Humanoid.Health = 100
+end
+end)
+
+local Tab = Window:NewTab("Test")
+local Section = Tab:NewSection("Test")
+Section:NewButton("Print Player", "ButtonInfo", function()
+print(plr)
+end)
+Section:NewButton("Print Device", "ButtonInfo", function()
+if game:GetService("UserInputService").TouchEnabled then
+print("Phone or Tablet")
+else
+print("Computer")
+end
+end)
+Section:NewButton("Print GameID", "ButtonInfo", function()
+local gam = game.PlaceId
+print(gam)
+end)
+local Tab = Window:NewTab("Other")
+local Section = Tab:NewSection("Other")
+Section:NewToggle("Anti Ragdoll", "ToggleInfo", function(state)
+if state then
+plr.Character.RagdollMe.Enabled = false
+plr.Character.Pushed.Enabled = false
+plr.Character.Swimming = false
+else
+plr.Character.RagdollMe.Enabled = true
+plr.Character.Pushed.Enabled = true
+plr.Character.Swimming = true
+end
+end)
