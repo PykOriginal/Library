@@ -51,7 +51,11 @@ end)
 Section:NewSlider("Jump Power", "SliderInfo", 200, 64, function(s)
 plr.Character.Humanoid.JumpPower = s
 end)
-
+Section:NewButton("GodMode", "ButtonInfo", function()
+while game:GetService("RunService").RenderStepped:wait() do
+plr.Character.Humanoid.Health = 100
+end
+end)
 local Tab = Window:NewTab("Esp")
 local Section = Tab:NewSection("Esp")
 Section:NewButton("Felipe Esp", "ButtonInfo", function()
